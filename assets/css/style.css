@@ -1,0 +1,38 @@
+body{
+    width: 100%;
+
+}
+
+
+
+
+body{
+    background-color: black;
+
+    width: 100%;
+}
+
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 2s;
+}
+
+.card-body a{
+    /* Created with https://www.css-gradient.com */
+background: #2231B7;
+background: -webkit-radial-gradient(top, #2231B7, #751329);
+background: -moz-radial-gradient(top, #2231B7, #751329);
+background: radial-gradient(to bottom, #2231B7, #751329);
+}
+
+.contact{
+    background: #2231B7;
+    background: -webkit-radial-gradient(top, #2231B7, #751329);
+    background: -moz-radial-gradient(top, #2231B7, #751329);
+    background: radial-gradient(to bottom, #2231B7, #751329);
+    color: white;
+}
+
+
+https://randomwordgenerator.com/picture.php
