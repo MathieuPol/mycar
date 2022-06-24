@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans le project MyCar
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+
+	{# Dans le cadre de l'exercice j'ai décidé de me concentrer sur les fonctionnalités #}
+
+
+	<div class="example-wrapper">
+		<h1 class="text-center">Bienvenue dans le project MyCar</h1>
+
+		<h2 class="text-center">Voici un apperçu de nos modeles</h2>
+
+
+		{% include "main/partials/_nav_base.html.twig" %}
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Modele</th>
+					<th scope="col">Date de sortie</th>
+					<th scope="col">Marque</th>
+					<th scope="col">Elle te plait pas?<br> Supprime la!</th>
+					<th scope="col">Tu pourrais la modifier au lieu de la supprimer!!</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for car in carList %}
+
+					<tr class="align-middle">
+						<th scope="row">{{ car.id }}</th>
+						<td>{{ car.modele }}</td>
+						<td>{{ car.releaseDate|date ("m/d/Y") }}</td>
+						<td><a href="{{ path('carBrand', {id: car.brand.id}) }}">{{ car.brand.name }}</a></td>
+
+
+						<td>
+                                    <form action="{{ path('carDelete', {id: car.id}) }}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE" />
+ 										<button type="submit" onclick="window.location.href= '{{ path('carDelete', {id: car.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un véhicule</button>
+                                    </form>
+						
+						</td>
+						<td>
+						 	<button type="submit" onclick="window.location.href= '{{ path('carUpdate', {id: car.id}) }}'" type="button" class="btn btn-primary me-2">Modifier un véhicule</button>
+
+						</td>
+					</tr>
+				{% endfor %}
+
+
+			</tbody>
+		</table>
+
+
+	</div>
+{% endblock %}

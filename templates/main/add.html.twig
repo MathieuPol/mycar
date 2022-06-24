@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans le project MyCar{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+{# Dans le cadre de l'exercice j'ai décidé de me concentrer sur les fonctionnalités #}
+
+<div class="example-wrapper">
+    <h1 class="text-center">Bienvenue dans le project MyCar</h1>
+
+       <h2 class="text-center">Vous allez ajouter un véhicule</h2>
+
+{% include "main/partials/_nav_base.html.twig" %}
+
+
+
+{{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+
+{{ form_end(form) }}
+
+
+</div>
+{% endblock %}
