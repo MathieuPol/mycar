@@ -48,6 +48,7 @@ class MainController extends AbstractController
      */
     public function index(Request $request, ManagerRegistry $doctrine): Response
     {
+
         $car = new Car;
 
         $form = $this->createForm(CarType::class, $car);

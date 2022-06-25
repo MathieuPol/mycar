@@ -7,9 +7,10 @@ use Doctrine\Persistence\ObjectManager;
 
 use App\Entity\Car;
 use App\Entity\Brand;
+
 use Faker;
 
-
+use Faker\Provider\Fakecar;
 
 class AppFixtures extends Fixture
 {
@@ -20,10 +21,11 @@ class AppFixtures extends Fixture
         $cars = [];
         $brands = [];
         $faker = Faker\Factory::create('fr_FR');
+        $faker->addProvider(new Fakecar($faker));
 
         for ($j= 1; $j < 4; $j++) { 
             $brand = new Brand();
-            $brand->setName($faker->name());
+            $brand->setName($faker->vehicleBrand());
             $brands[] = $brand;
             
             $manager->persist($brand);
@@ -36,7 +38,7 @@ class AppFixtures extends Fixture
 
             $car = new Car();
 
-            $car->setModele($faker->name());
+            $car->setModele($faker->vehicleModel());
             $car->setReleasedate($faker->dateTimeBetween('-80 years'));
             $car->setBrand( $brands[mt_rand(0, count($brands) - 1) ] );
 
