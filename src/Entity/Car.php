@@ -45,6 +45,11 @@ class Car
      */
     private $door;
 
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $etat;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +111,18 @@ class Car
     public function setDoor(int $door): self
     {
         $this->door = $door;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }

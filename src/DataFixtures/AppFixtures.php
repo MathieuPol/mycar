@@ -10,20 +10,61 @@ use App\Entity\Brand;
 
 use Faker;
 
+use Doctrine\DBAL\Connection;
+
 use Faker\Provider\Fakecar;
 
 class AppFixtures extends Fixture
 {
+
+
+    private $connection;
+ 
+
+    public function __construct(Connection $connection)
+    {
+        // On récupère la connexion à la BDD (DBAL ~= PDO)
+        // pour exécuter des requêtes manuelles en SQL pur
+        $this->connection = $connection;
+
+    }
+    
+
+    /**
+     * Permet de TRUNCATE les tables et de remettre les Auto-incréments à 1
+     */
+    private function truncate()
+    {
+        // On passe en mode SQL ! On cause avec MySQL
+        // Désactivation la vérification des contraintes FK
+        $this->connection->executeQuery('SET foreign_key_checks = 0');
+        // On tronque
+        $this->connection->executeQuery('TRUNCATE TABLE car');
+        $this->connection->executeQuery('TRUNCATE TABLE brand');
+        $this->connection->executeQuery('TRUNCATE TABLE user');
+        // etc.
+        // Réactivation la vérification des contraintes FK
+        $this->connection->executeQuery('SET foreign_key_checks = 1');
+    }
+
+
+
+
+
 
     public function load(ObjectManager $manager): void
     {
 
         $cars = [];
         $brands = [];
+        $etat = [
+            1 => 'Neuf',
+            2 => 'Occasion'
+        ];
         $faker = Faker\Factory::create('fr_FR');
         $faker->addProvider(new Fakecar($faker));
 
-        for ($j= 1; $j < 4; $j++) { 
+        for ($j= 1; $j < 6; $j++) { 
             $brand = new Brand();
             $brand->setName($faker->vehicleBrand());
             $brands[] = $brand;
@@ -43,6 +84,10 @@ class AppFixtures extends Fixture
             $car->setFuel($faker->vehicleFuelType());
             $car->setBrand( $brands[mt_rand(0, count($brands) - 1) ] );
             $car->setDoor($faker->vehicleDoorCount);
+
+
+            $randEtat = mt_rand(1,2);
+            $car->setEtat($etat[$randEtat]);
 
             $manager->persist($car);
 

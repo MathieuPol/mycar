@@ -49,10 +49,10 @@ class CarType extends AbstractType
             ->add('fuel', ChoiceType::class, [
                 'label' => 'Energie',
                 'choices' => [
-                    'Diesel' => 'diesel',
-                    'Essence' => 'gas',
-                    'Hybrid' => 'hybrid',
-                    'Electrique' => 'eletric'],
+                    'Diesel' => 'Diesel',
+                    'Essence' => 'Essence',
+                    'Hybrid' => 'Hybrid',
+                    'Electrique' => 'Eletric'],
                     'expanded' => true,
                     'constraints' => new NotBlank()
             ])
@@ -66,6 +66,13 @@ class CarType extends AbstractType
                     '6' => '6',
                     '7' => '7',
                     '8' => '8'],
+                    'constraints' => new NotBlank()
+            ])
+            ->add('etat', ChoiceType::class, [
+                'label' => 'Etat du véhicule',
+                'choices' => [
+                    'Neuf' => 'Neuf',
+                    'Occasion' => 'Occasion'],
                     'constraints' => new NotBlank()
             ])
         ;
