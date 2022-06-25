@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans le project MyCar
+{% endblock %}
+
+{% block body %}
+
+		{% include "main/partials/_nav_front.html.twig" %}
+		
+      <main>
+        <div class="mt-0 row d-flex justify-content-around flex-wrap">
+
+
+{% for car in carList %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-5 text-center d-flex justify-content-center flex-wrap">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/05/15/29/aston-martin-2118857_960_720.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.modele }}</h5>
+						<h5 class="card-subtitle">Constructeur: {{ car.brand.name }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{{ path('showCar', {id: car.id}) }}" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+
+            </div>
+{% else %}
+
+<p> Rien à afficher ici</p>
+
+{% endfor %}
+        </div>
+      </main>
+      <footer class="bg-dark mb-0">
+        
+          
+            <h3 class="text-light text-center mt-3 mb-0">MyCar.com</h3>
+        
+            
+
+      </footer>
+{% endblock %}

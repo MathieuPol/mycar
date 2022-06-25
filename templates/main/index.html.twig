@@ -35,6 +35,7 @@
 					<th scope="col">Modele</th>
 					<th scope="col">Date de sortie</th>
 					<th scope="col">Marque</th>
+					<th scope="col">Type</th>
 					<th scope="col">Elle te plait pas?<br> Supprime la!</th>
 					<th scope="col">Tu pourrais la modifier au lieu de la supprimer!!</th>
 				</tr>
@@ -48,6 +49,7 @@
 						<td>{{ car.modele }}</td>
 						<td>{{ car.releaseDate|date ("m/d/Y") }}</td>
 						<td><a href="{{ path('carBrand', {id: car.brand.id}) }}">{{ car.brand.name }}</a></td>
+						<td>{{ car.fuel }}</td>
 
 
 						<td>

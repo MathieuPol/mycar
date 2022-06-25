@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CarType extends AbstractType
 {
@@ -45,6 +46,28 @@ class CarType extends AbstractType
                 'help' => 'Choisissez une marque',
                 'constraints' => new NotBlank()
             ] )
+            ->add('fuel', ChoiceType::class, [
+                'label' => 'Energie',
+                'choices' => [
+                    'Diesel' => 'diesel',
+                    'Essence' => 'gas',
+                    'Hybrid' => 'hybrid',
+                    'Electrique' => 'eletric'],
+                    'expanded' => true,
+                    'constraints' => new NotBlank()
+            ])
+            ->add('door', ChoiceType::class, [
+                'label' => 'Portes',
+                'choices' => [
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                    '7' => '7',
+                    '8' => '8'],
+                    'constraints' => new NotBlank()
+            ])
         ;
     }
 

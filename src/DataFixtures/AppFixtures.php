@@ -40,7 +40,9 @@ class AppFixtures extends Fixture
 
             $car->setModele($faker->vehicleModel());
             $car->setReleasedate($faker->dateTimeBetween('-80 years'));
+            $car->setFuel($faker->vehicleFuelType());
             $car->setBrand( $brands[mt_rand(0, count($brands) - 1) ] );
+            $car->setDoor($faker->vehicleDoorCount);
 
             $manager->persist($car);
 

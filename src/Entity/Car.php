@@ -35,6 +35,16 @@ class Car
      */
     private $brand;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $fuel;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $door;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +82,30 @@ class Car
     public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getFuel(): ?string
+    {
+        return $this->fuel;
+    }
+
+    public function setFuel(string $fuel): self
+    {
+        $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    public function getDoor(): ?int
+    {
+        return $this->door;
+    }
+
+    public function setDoor(int $door): self
+    {
+        $this->door = $door;
 
         return $this;
     }
