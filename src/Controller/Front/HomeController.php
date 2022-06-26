@@ -61,8 +61,37 @@ class HomeController extends AbstractController
 
 
 
+/**
+ * Permet l'affichage des voitures neuves
+ * @Route("/new", name="newCar", methods={"GET"})
+ * @return Response
+ */
+public function newCar(CarRepository $carRepository)
+{
+    $carList = $carRepository->findBy(array('etat' => 'Neuf'));
+    return $this->render('main/front/home.html.twig',[
+        "carList" => $carList
+    ]);
+}
 
-         /**
+/**
+ * Permet l'affichage des voitures neuves
+ * @Route("/used", name="usedCar", methods={"GET"})
+ * @return Response
+ */
+public function usedCar(CarRepository $carRepository)
+{
+    $carList = $carRepository->findBy(array('etat' => 'Occasion'));
+    return $this->render('main/front/home.html.twig',[
+        "carList" => $carList
+    ]);
+}
+
+
+
+
+
+    /**
      * Methode de suppression ici on envoi des voiture à la casse
      * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
      * @return Response

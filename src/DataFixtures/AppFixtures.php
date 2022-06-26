@@ -61,6 +61,12 @@ class AppFixtures extends Fixture
             1 => 'Neuf',
             2 => 'Occasion'
         ];
+
+
+
+
+
+
         $faker = Faker\Factory::create('fr_FR');
         $faker->addProvider(new Fakecar($faker));
 
@@ -88,6 +94,20 @@ class AppFixtures extends Fixture
 
             $randEtat = mt_rand(1,2);
             $car->setEtat($etat[$randEtat]);
+
+
+            //*------------------Partie prix
+            $basePrice = mt_rand(2,5);
+            if($car->getEtat() == "Occasion")
+            {
+                $prix = $basePrice* 2500;
+            }
+            else( $prix = $basePrice * 10000);
+            $car->setPrix($prix);
+            //*--------------------------------
+
+
+
 
             $manager->persist($car);
 

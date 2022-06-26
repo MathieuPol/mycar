@@ -19,6 +19,8 @@
                         <h5 class="card-title">{{ car.modele }}</h5>
 						<h5 class="card-subtitle">Constructeur: {{ car.brand.name }}</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p>Etat: {{ car.etat }}</p>
+                        <h6 class="card-title">Prix: {{ car.prix }}€</h6>
                         <a href="{{ path('showCar', {id: car.id}) }}" class="btn btn-dark">Voir le modèle</a>
                     </div>
                 </div>

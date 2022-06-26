@@ -50,6 +50,11 @@ class Car
      */
     private $etat;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +128,18 @@ class Car
     public function setEtat(string $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }
