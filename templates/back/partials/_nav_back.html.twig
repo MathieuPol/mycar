@@ -35,7 +35,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ path('add') }}">Un nouveau modèle</a>
-                                    <a class="nav-link" href="#">Une nouvelle marque</a>
+                                    <a class="nav-link" href="{{ path('app_back_brand_new') }}">Une nouvelle marque</a>
                                     <a class="nav-link" href="{{ path('app_back_user_new') }}">Un nouvel utilisateur</a>
                                 </nav>
                             </div>
@@ -48,8 +48,8 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ path('home') }}">Un modèle</a>
-                                    <a class="nav-link" href="#">Une marque</a>
-                                    <a class="nav-link" href="#">Un utilisateur</a>
+                                    <a class="nav-link" href="{{ path('app_back_brand_index') }}">Une marque</a>
+                                    <a class="nav-link" href="{{ path('app_back_user_index') }}">Un utilisateur</a>
                                 </nav>
                             </div>
                         </div>

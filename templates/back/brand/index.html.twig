@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de marque{% endblock %}
+
+{% block style %}{{ asset('css/styleBack.css') }}{% endblock %}
+
+
+{% block body %}
+
+    {% include '/back/partials/_nav_back.html.twig' %}
+
+        <div id="layoutSidenav_content">
+            <main>
+                <h1 class="text-center">Voici un apperçu de vos marques</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brand in brands %}
+            <tr class="align-middle">
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+
+                <td>
+
+						 	<button type="submit" onclick="window.location.href= '{{ path('app_back_brand_edit', {id: brand.id}) }}'" type="button" class="btn btn-primary me-2">Modifier une marque</button>
+				</td>
+				<td>
+                {% include '/back/brand/_delete_form.html.twig' %}
+				</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <h6>*Pour supprimer une marque il faut supprimer toutes les voitures qui lui sont associées.</h6>
+
+
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Réalisé par Poltorak Mathieu</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}

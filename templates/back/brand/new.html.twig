@@ -9,23 +9,14 @@
 {% block body %}
 
     {% include '/back/partials/_nav_back.html.twig' %}
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="text-center mt-4">Vous allez ajouter un véhicule</h1>
-                            <div class="row">
 
-                                {{ form_start(form) }}
-
-                                    {{ form_widget(form) }}
-
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
-
-                                {{ form_end(form) }}
-
-                                <a href="{{ path('app_back_user_index') }}">back to list</a>
-          
-                            </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1>Create new Brand</h1>
+                    <div class="row">
+                        {{ include('back/brand/_form.html.twig') }}
+                          </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -36,4 +27,5 @@
                     </div>
                 </footer>
             </div>
+    <a href="{{ path('app_back_brand_index') }}">back to list</a>
 {% endblock %}

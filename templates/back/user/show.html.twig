@@ -1,14 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block style %}{{ asset('css/styleBack.css') }}{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+
+    {% include '/back/partials/_nav_back.html.twig' %}
+        <div id="layoutSidenav_content">
+            <main>
+                <h1 class="text-center">Voici un apperçu de vos utilisateurs</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th class="thead-dark">Id</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
@@ -31,4 +37,18 @@
     <a href="{{ path('app_back_user_edit', {'id': user.id}) }}">edit</a>
 
     {{ include('back/user/_delete_form.html.twig') }}
+
+
+                    </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Réalisé par Poltorak Mathieu</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="{{ asset('js/script.js') }}"></script>
 {% endblock %}

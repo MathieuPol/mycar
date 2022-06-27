@@ -35,6 +35,7 @@ class MainController extends AbstractController
 
         if($brand){
 
+            
             $carBrand = $brand->getCars();
             return $this->render('main/brandCar.html.twig',[
                 "brand" => $brand,
