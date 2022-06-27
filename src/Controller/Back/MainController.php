@@ -6,10 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
+/**
+ * @Route("/back")
+ */
 class MainController extends AbstractController
 {
     /**
-     * @Route("/back/main", name="app_back_main")
+     * @Route("/main", name="app_back_main")
      */
     public function index(): Response
     {
@@ -17,4 +22,10 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+
+
+
+   
 }
+

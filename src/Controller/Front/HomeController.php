@@ -110,24 +110,4 @@ public function usedCar(CarRepository $carRepository)
         return $this->redirectToRoute('home');
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
