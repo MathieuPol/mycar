@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=CarRepository::class)
  */
@@ -20,23 +20,27 @@ class Car
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Groups("showAllCar")
      */
     private $modele;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
+     * @Groups("showAllCar")
      */
     private $releasedate;
 
     /**
      * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="cars")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("showAllCar")
      */
     private $brand;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups("showAllCar")
      */
     private $fuel;
 

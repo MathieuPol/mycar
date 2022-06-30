@@ -17,9 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
-//*N'étant pas demandé dans l'exercice pas de routes pour l'ajout de brand
-//*Une méthode à cependant été ajouté en fixture pour avoir des données factices
-
     /**
      * permet de génerer la home
      * @Route("/", name="fronthome", methods={"GET"})
