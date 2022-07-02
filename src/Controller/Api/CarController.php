@@ -13,14 +13,14 @@ class CarController extends AbstractController
     /**
      * @Route("/api/car", name="app_api_car")
      */
-    public function index(CarRepository $carRepository): JsonResponse
+    public function index(CarRepository $carRepository)
     {
         $allCar = $carRepository->findAll();
     
 
         return $this->json(
             $allCar,
-            Response::HTTP_OK,
+            200,
             [],
             [
                 "groups" => [
