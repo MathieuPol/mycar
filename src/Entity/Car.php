@@ -32,7 +32,7 @@ class Car
     private $releasedate;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="cars")
+     * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="cars", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      * @Groups("showAllCar")
      */
