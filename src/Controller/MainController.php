@@ -18,12 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
 
-//*N'étant pas demandé dans l'exercice pas de routes pour l'ajout de brand
-//*Une méthode à cependant été ajouté en fixture pour avoir des données factices
-
-
-
-
          /**
      * Methode de suppression ici on envoi des voiture à la casse
      * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
@@ -44,6 +38,8 @@ class MainController extends AbstractController
         return $this->redirectToRoute('home');
 
     }
+
+
 
 
 

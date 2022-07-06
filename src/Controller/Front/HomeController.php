@@ -84,10 +84,6 @@ public function usedCar(CarRepository $carRepository)
     ]);
 }
 
-
-
-
-
     /**
      * Methode de suppression ici on envoi des voiture à la casse
      * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
@@ -107,4 +103,17 @@ public function usedCar(CarRepository $carRepository)
         return $this->redirectToRoute('home');
 
     }
+
+    /**
+     * Affiche la page description
+     * @Route("/description", name="description", methods={"GET"})
+     * @return Response
+     */
+    public function description():Response
+    {
+        return $this->render('main/front/description.html.twig');
+    }
+
+
+
 }

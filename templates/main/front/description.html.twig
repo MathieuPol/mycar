@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue dans le project MyCar
+{% endblock %}
+
+{% block body %}
+
+		{% include "main/partials/_nav_front.html.twig" %}    
+      <main>
+        <div class="mt-0 row d-flex justify-content-around flex-wrap text-light text-center">
+            <h1 class="text-center">Bienvenue sur mon projet</h1>
+            <h2 class="text-center">Présentation du projet</h2>
+            <section class="text-center" role="description">
+            <p> Ce projet à été réalisé entièrement en autonomie. Je m'y suis consacré durant mon temps libre
+                en parallèle de ma formation de développeur web.
+            </p> 
+            <p> Ce projet à été réalisé en php avec notamment le framework Symfony. Il adopte une structure MVC et
+                il utilise une base de données MySQL.
+            </p>
+            <p> Il à été construit dans le but de mettre en application ce que j'ai appris durant ma formation.</p>
+            </section>
+            <h2 class="text-center">Sur un plan technique</h2>
+            <p class="text-center">voici donc ce que j'ai utilisé pour ce projet:</p>
+            <ul class="list-group w-auto">
+                <li class="list-group-item list-group-item-dark">php</li>
+                <li class="list-group-item list-group-item-dark">Symfony</li>
+                <li class="list-group-item list-group-item-dark">Twig</li>
+                <li class="list-group-item list-group-item-dark">MySQL</li>
+                <li class="list-group-item list-group-item-dark">Bootstrap</li>
+            </ul>
+            <p class="text-center">En plus de ces technologies je me suis appliqué à mettre en place</p>
+            <ul class="list-group w-auto">
+                <li class="list-group-item list-group-item-dark">La création d'un jeu de données grace aux fixtures.</li>
+                <li class="list-group-item list-group-item-dark">Une gestion des droits avec une hierarchie entre ceux-ci.</li>
+                <li class="list-group-item list-group-item-dark">Une partie backoffice avec notamment une gestion du parc, une gestion des marques et une gestion, des utilisateurs.</li>
+                <li class="list-group-item list-group-item-dark">Une structure MVC avec une factorisation des vues.</li>
+                <li class="list-group-item list-group-item-dark">Une sécurité à la validation des formulaires.</li>
+                <li class="list-group-item list-group-item-dark">Un rendu API pour les modèles ainsi que la possibilité d'en ajouter</li>
+            </ul>
+            <h2 class="text-center">Un projet qui évolue</h2>
+            <p>Etant fait en parallèle de ma formation il y à certaines choses que je n'ai pas pu mettre en place faute de temps.</p>
+            <p>Voici ce qui est prévu que je mette en œuvre</p>
+                <ul class="list-group w-auto">
+                    <li  class="list-group-item list-group-item-dark">La mise en place d'un token JWT pour sécuriser l'api</li>
+                    <li  class="list-group-item list-group-item-dark">Un hébergement des images via la database avec un hebergeur d'images</li>
+                    <li  class="list-group-item list-group-item-dark">La mise en place d'un service de slug pour les modèles et les marques</li>
+                    <li  class="list-group-item list-group-item-dark">Mettre en place une commande pour faire un slug de toutes les données le necessitant en bdd</li>
+                    <li  class="list-group-item list-group-item-dark">Mettre en place un voter pour gérer certaines routes</li>
+                    <li  class="list-group-item list-group-item-dark">Mettre en place les test unitaire</li>
+                </ul>
+        </div>
+      </main>
+      <footer class="bg-dark mb-0">
+            <h3 class="text-light text-center mt-3 mb-0">MyCar.com</h3>       
+            <h6 class="text-light text-center"> Réalisé par Mathieu Poltorak </h6>    
+      </footer>
+{% endblock %}
