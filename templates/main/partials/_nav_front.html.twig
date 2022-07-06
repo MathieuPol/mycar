@@ -19,24 +19,33 @@
                 <a class="nav-link" href=" {{ path('usedCar') }} ">Occasions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login')}}">Connection</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#">Description</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_api_car')}}">Api</a>
               </li>
 
-
+          
+            {% if is_granted('ROLE_MANAGER') %}
+            
               <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_back_main')}}">Back-office</a>
               </li>
-
+            {% else %}
+            {% endif %}
+              
+             
             </ul>
-            <span class="navbar-text">
-                <a href="http://">Nous contacter</a>
-             </span>
+
+                  {% if app.user != null %}
+
+                    <button onclick="window.location.href= '{{ path('app_logout')}}'" type="button" class="btn btn-danger me-2">Déconnexion</button>
+
+                  {% endif %}
+
+                  {% if app.user == null %}
+                                <button onclick="window.location.href= '{{ path('app_login')}}'" type="button" class="btn btn-success me-2">Connexion</button>
+                  {% endif %}
 
 
           </div>

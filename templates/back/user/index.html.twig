@@ -17,7 +17,7 @@
 
 
 
-		<h2 class="text-center">Voici un apperçu de vos modeles</h2>
+		<h2 class="text-center">Voici un apperçu de vos utilisateurs</h2>
 
 
 		<table class="table">
@@ -26,7 +26,6 @@
                 <th scope="col" >Id</th>
                 <th scope="col" >Email</th>
                 <th scope="col" >Roles</th>
-                <th scope="col" >Password</th>
                 <th scope="col" >actions</th>
 				</tr>
 			</thead>
@@ -37,7 +36,6 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>
                     <a type="button" class="btn btn-primary me-2" href="{{ path('app_back_user_show', {'id': user.id}) }}">Voir</a>
                 </td>
@@ -45,10 +43,8 @@
                     <a type="button" class="btn btn-warning me-2" href="{{ path('app_back_user_edit', {'id': user.id}) }}">Editer un utilisateur</a>
                 </td>
                 <td>
-                    <form action="{{ path('app_back_user_delete', {'id': user.id}) }}" method="post">
-                        <input type="hidden" name="_method" value="DELETE" />
- 						<button type="submit" onclick="window.location.href= '{{ path('app_back_user_delete', {id: user.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un utilisateur</button>
-                    </form>
+                {% include "back/user/_delete_form.html.twig" %}
+
 						
 				</td>
             </tr>

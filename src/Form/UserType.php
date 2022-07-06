@@ -28,7 +28,7 @@ class UserType extends AbstractType
                     'Manager' => 'ROLE_MANAGER',
                     'Admin' => 'ROLE_ADMIN'
                 ],
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true,
                 'required' => false
             ])
@@ -38,6 +38,27 @@ class UserType extends AbstractType
                 'constraints' => new NotNull(),
             ])
         ;
-
+                // Data transformer
+                $builder->get('roles')
+                ->addModelTransformer(new CallbackTransformer(
+                    function ($rolesArray) {
+                         // transform the array to a string
+                         return count($rolesArray)? $rolesArray[0]: null;
+                    },
+                    function ($rolesString) {
+                         // transform the string back to an array
+                         return [$rolesString];
+                    }
+            ));
 }
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => User::class,
+                        // Nos attributs HTML
+                        'attr' => [
+                            'novalidate' => 'novalidate',
+                        ]           
+        ]);
+    }
 }
