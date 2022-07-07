@@ -9,13 +9,15 @@
 {% block body %}
 
     {% include '/back/partials/_nav_back.html.twig' %}
+            <div id="layoutSidenav_content">
+                <main class="mb-3">
+                    <div class="container-fluid px-4">
+                        <h1 class="text-center mt-4">Vous allez ajouter une marque</h1>
+                            <div class="row">
 
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1>Create new Brand</h1>
-                    <div class="row">
                         {{ include('back/brand/_form.html.twig') }}
+
+
                           </div>
                     </div>
                 </main>
@@ -27,6 +29,5 @@
                     </div>
                 </footer>
             </div>
-    <a href="{{ path('app_back_brand_index') }}">back to list</a>
             <script src="{{ asset('js/script.js') }}"></script>
 {% endblock %}

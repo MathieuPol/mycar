@@ -9,9 +9,6 @@
 
 {% block body %}
 {% include '/back/partials/_nav_back.html.twig' %}
-
-
-
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -25,8 +22,8 @@
 
     <button type="submit" class="btn btn-success">Enregistrer</button>
 
+    <a class="btn btn-primary" href="{{ path('home') }}">Retour à la liste</a>
 {{ form_end(form) }}
-                            <a href="{{ path('app_back_user_index') }}">back to list</a>
           
                         </div>
                     </div>

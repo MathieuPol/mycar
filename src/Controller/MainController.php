@@ -18,8 +18,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
 
-         /**
-     * Methode de suppression ici on envoi des voiture à la casse
+    /**
+     * Méthode permettant de retrouvér toutes les voitures d'une marque
      * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
      * @return Response
      * @param int $id
@@ -37,26 +37,5 @@ class MainController extends AbstractController
         return $this->redirectToRoute('home');
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

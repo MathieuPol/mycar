@@ -10,7 +10,7 @@
 
     {% include '/back/partials/_nav_back.html.twig' %}
             <div id="layoutSidenav_content">
-                <main>
+                <main class="mb-3">
                     <div class="container-fluid px-4">
                         <h1 class="text-center mt-4">Vous allez ajouter un véhicule</h1>
                             <div class="row">
@@ -21,9 +21,9 @@
 
                                     <button type="submit" class="btn btn-success">Enregistrer</button>
 
+                                <a class="btn btn-primary w-auto" href="{{ path('app_back_main') }}">back to list</a>
                                 {{ form_end(form) }}
 
-                                <a href="{{ path('app_back_user_index') }}">back to list</a>
           
                             </div>
                     </div>

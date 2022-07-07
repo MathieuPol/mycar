@@ -1,21 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Brand{% endblock %}
+{% block title %}Liste des marques{% endblock %}
+
+{% block style %}{{ asset('css/styleBack.css') }}{% endblock %}
 
 {% block body %}
+{% include '/back/partials/_nav_back.html.twig' %}
     <h1>Brand</h1>
 
     <table class="table">
-        <tbody>
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
-                <td>{{ brand.id }}</td>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
             </tr>
+        </thead>
             <tr>
-                <th>Name</th>
+                <th scope="row">{{ brand.id }}</th>
                 <td>{{ brand.name }}</td>
             </tr>
-        </tbody>
     </table>
 
     <a href="{{ path('app_back_brand_index') }}">back to list</a>
