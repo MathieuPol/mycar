@@ -8,15 +8,12 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 class DoctrineDenormalizer implements DenormalizerInterface
 {
-
-
     private $entityManagerInterface;
 
     public function __construct(EntityManagerInterface $entityManagerInterface)
     {
         $this->entityManagerInterface = $entityManagerInterface;
     }
-
 
     /**
      * Appel quand on a besoin de denormalizer

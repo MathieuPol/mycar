@@ -122,7 +122,6 @@ class CarController extends AbstractController
         );
 }
 
-
     /**
      * Route permettant d'ajouter un modele au format json
      * @Route ("/add/brand", name = "app_add_brand", methods= {"POST"})
@@ -167,7 +166,9 @@ class CarController extends AbstractController
 
 }
 
-/* {
+/*
+Exemple de requete pour ajouter un modele
+{
 	"modele":"test drive",
 	"releasedate":"1997-02-23T00:00:00+00:00",
 	"fuel": "electric",

@@ -17,7 +17,6 @@ use Faker\Provider\Fakecar;
 class AppFixtures extends Fixture
 {
 
-
     private $connection;
  
 
@@ -48,10 +47,6 @@ class AppFixtures extends Fixture
     }
 
 
-
-
-
-
     public function load(ObjectManager $manager): void
     {
 
@@ -61,10 +56,6 @@ class AppFixtures extends Fixture
             1 => 'Neuf',
             2 => 'Occasion'
         ];
-
-
-
-
 
 
         $faker = Faker\Factory::create('fr_FR');
@@ -106,20 +97,10 @@ class AppFixtures extends Fixture
             $car->setPrix($prix);
             //*--------------------------------
 
-
-
-
             $manager->persist($car);
 
 
         }
-
-
-
-
-
-        // $product = new Product();
-        // $manager->persist($product);
 
         $manager->flush();
     }
