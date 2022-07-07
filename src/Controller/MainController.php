@@ -26,7 +26,6 @@ class MainController extends AbstractController
      */
     public function oneBrand(Brand $brand, Request $request, BrandRepository $brandRepository):Response
     {
-
         if($brand){
 
             
