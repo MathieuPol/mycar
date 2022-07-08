@@ -16,19 +16,19 @@ class UserFixture extends Fixture
 
         $user = new User;
         $user->setEmail('admin@admin.com');
-        $user->setPassword('$2y$13$t4C0CuooN07nprYKD5x5UeIEab8FaVvDlhtDO13NvK8Y2SsB.me7O');
+        $user->setPassword('$2y$13$2NgYPMZKZ/ME35j4Cmv9YOrOVNUsSVOGOw.u7IaEh4gr.Jghb00IK');
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
 
         $userUser = new User;
         $userUser->setEmail('user@user.com');
-        $userUser->setPassword('$2y$13$V5/Tv9l.73QTTH4S.2snO.qWi2M2tcouxYQdq0iLPgi/4wfjb5.Pe');
+        $userUser->setPassword('$2y$13$rk8fC9BIsoVq.VcYsSan8uovcFRcj9iSUb0LI9gmBvG/5MUrf2qxG');
         $userUser->setRoles(['ROLE_USER']);
         $manager->persist($userUser);
 
         $man = new User;
         $man->setEmail('manager@manager.com');
-        $man->setPassword('$2y$13$P1WneVjoPsN8dR.1oTcBnOn4o0zXf/ke1ntOFHkq3BK3TMea.HNuy');
+        $man->setPassword('$2y$13$lN0u6acGVJBRghxhSPaPcOA3Yf8Ss6PAP4yHrbOJZauBkirUwZ106');
         $man->setRoles(['ROLE_MANAGER']);
         $manager->persist($man);
 

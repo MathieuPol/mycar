@@ -6,24 +6,51 @@
 
 {% block body %}
 {% include '/back/partials/_nav_back.html.twig' %}
-    <h1>Brand</h1>
+    <div id="layoutSidenav_content">
+        <main>
+            <h2 class="text-center">Voici les modèles de cette marque</h2>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Modele</th>
+                        <th scope="col">Date de sortie</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Elle te plait pas?<br> Supprime la!</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nom</th>
-            </tr>
-        </thead>
-            <tr>
-                <th scope="row">{{ brand.id }}</th>
-                <td>{{ brand.name }}</td>
-            </tr>
-    </table>
+                    {% for car in cars %}
 
-    <a href="{{ path('app_back_brand_index') }}">back to list</a>
+                        <tr>
+                            <th scope="row">{{ car.id }}</th>
+                            <td>{{ car.modele }}</td>
+                            <td>{{ car.releaseDate|date ("m/d/Y") }}</td>
+                            <td>{{ car.brand.name }}</td>
 
-    <a href="{{ path('app_back_brand_edit', {'id': brand.id}) }}">edit</a>
+                            <td>
+                                <form action="{{ path('carDelete', {id: car.id}) }}" method="post">
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <button type="submit" onclick="window.location.href= '{{ path('carDelete', {id: car.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un véhicule</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Réalisé par Poltorak Mathieu</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
 
-    {{ include('back/brand/_delete_form.html.twig') }}
+        <script src="{{ asset('js/script.js') }}"></script>
+
+        </div>
 {% endblock %}

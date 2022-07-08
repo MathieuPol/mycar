@@ -85,26 +85,6 @@ public function usedCar(CarRepository $carRepository)
 }
 
     /**
-     * Methode de suppression ici on envoi des voiture à la casse
-     * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
-     * @return Response
-     * @param int $id
-     */
-    public function oneBrand(Brand $brand, Request $request, BrandRepository $brandRepository):Response
-    {
-
-        if($brand){
-
-            $carBrand = $brand->getCars();
-            return $this->render('main/brandCar.html.twig',[
-                "brand" => $brand,
-                "cars" => $carBrand]);
-            }
-        return $this->redirectToRoute('home');
-
-    }
-
-    /**
      * Affiche la page description
      * @Route("/description", name="description", methods={"GET"})
      * @return Response

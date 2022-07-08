@@ -47,16 +47,6 @@ class BrandController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_back_brand_show", methods={"GET"})
-     */
-    public function show(Brand $brand): Response
-    {
-        return $this->render('back/brand/show.html.twig', [
-            'brand' => $brand,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="app_back_brand_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Brand $brand, BrandRepository $brandRepository): Response
@@ -87,5 +77,26 @@ class BrandController extends AbstractController
 
         return $this->redirectToRoute('app_back_brand_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * Méthode permettant de retrouvér toutes les voitures d'une marque
+     * @Route("/brand/{id}", name="carBrand", methods={"GET"}, requirements= {"id"="\d+"})
+     * @return Response
+     * @param int $id
+     */
+    public function oneBrand(Brand $brand, Request $request, BrandRepository $brandRepository):Response
+    {
+        if($brand){
+
+            
+            $carBrand = $brand->getCars();
+            return $this->render('back/brand/show.html.twig',[
+                "brand" => $brand,
+                "cars" => $carBrand]);
+            }
+        return $this->redirectToRoute('home');
+
+    }
+
 
 }
