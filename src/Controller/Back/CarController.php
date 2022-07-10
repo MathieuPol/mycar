@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Car;
 use App\Form\CarType;
 use App\Repository\CarRepository;
+use App\Services\MySlugger;
 
 /**
  * @Route("/back/car")
@@ -35,7 +36,7 @@ class CarController extends AbstractController
      * @Route("/add", name="add", methods={"POST","GET"})
      * @return Response
      */
-    public function add(Request $request, ManagerRegistry $doctrine): Response
+    public function add(Request $request, ManagerRegistry $doctrine, MySlugger $slug): Response
     {
 
         $car = new Car;
@@ -47,7 +48,9 @@ class CarController extends AbstractController
 
         //Vérification de base
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $newSlug = $slug->slug($car->getModele());
+            $car->setSlug($newSlug);;
+            dd($car);
         
         //Ajout de flash message pour l'ajout correct du formulaire
             $this->addFlash(

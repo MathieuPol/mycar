@@ -59,6 +59,11 @@ class Car
      */
     private $prix;
 
+    /**
+     * @ORM\Column(type="string", length=120, nullable=true)
+     */
+    private $slug;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,6 +149,18 @@ class Car
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
