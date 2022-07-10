@@ -50,7 +50,7 @@ class CarController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $newSlug = $slug->slug($car->getModele());
             $car->setSlug($newSlug);;
-            dd($car);
+
         
         //Ajout de flash message pour l'ajout correct du formulaire
             $this->addFlash(

@@ -42,8 +42,8 @@ class HomeController extends AbstractController
 
     /**
      * Permet l'affichage d'une seule voiture
-     * @Route("/car/{id}", name="showCar", methods={"GET"}, requirements= {"id" = "\d+"})
-     *@param int $id
+     * @Route("/car/{slug}", name="showCar", methods={"GET"})
+     *@param string $slug
      * @return Response
      */
     public function carShow(Car $car)
