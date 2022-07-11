@@ -37,3 +37,46 @@ Voici ce qui est prévu que je mette en œuvre
 + Mettre en place une commande pour faire un slug de toutes les données le necessitant en bdd: commande ```app:car:slug-update``` réalisé le 10/07.
 + Mettre en place un voter pour gérer certaines routes.
 + Mettre en place les test unitaires.
+
+-----------------------------------------------------------------------------------------------------
+
+
+# Wellcome to my project
+## Summary
+
+Whole this project are made alone during my web developer job's learning, precisely, during  my spare time. 
+
+Whole the project were made in php, with Symfony's framework. It was made with a MVC structure and use
+MySQL as database
+
+It was made put in practice during my formation's learning
+
+## On a technical plan
+I use for this project:
+
++ php
++ Symfony
++ Twig
++ MySQL
++ Bootstrap
+
+## To going further I've apply to
+
++ Using fixtures to create data
++ An access control depending Roles
++ A backoffice structure to rule the car, brand and users
++ MVC structure with factorisation between vues
++ A security on form's validation
++ a json render like API for car and brand
+
+## A living Project
+
+Like I said, this project take place during school sessions so there are such thing I have'nt implement yet.
+But they are scheduled and in progress
+
++ JWT Token to secure API
++ Store picture in a database
++ Set up slug for car and brand. Done the 07-10
++ Set up command to sluggify car's name in database. Done the 07-10 command: ```app:car:slug-update```
++ Set up voter to control route accessibility
++ Set up unit test
