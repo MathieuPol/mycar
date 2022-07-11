@@ -33,7 +33,7 @@ Voici ce qui est prévu que je mette en œuvre
 
 + La mise en place d'un token JWT pour sécuriser l'api.
 + Un hébergement des images via la database avec un hebergeur d'images.
-+ La mise en place d'un service de slug pour les modèles et les marques.
-+ Mettre en place une commande pour faire un slug de toutes les données le necessitant en bdd.
++ La mise en place d'un service de slug pour les modèles et les marques. Réalisé le 10/07.
++ Mettre en place une commande pour faire un slug de toutes les données le necessitant en bdd: commande ```app:car:slug-update``` réalisé le 10/07.
 + Mettre en place un voter pour gérer certaines routes.
-+ Mettre en place les test unitaire.
++ Mettre en place les test unitaires.
