@@ -13,6 +13,7 @@ body{
 }
 
 
+
 .card:hover{
     transform: scale(1.1);
     transition: 2s;
@@ -33,6 +34,3 @@ background: radial-gradient(to bottom, #2231B7, #751329);
     background: radial-gradient(to bottom, #2231B7, #751329);
     color: white;
 }
-
-
-https://randomwordgenerator.com/picture.php
