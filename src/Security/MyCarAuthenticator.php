@@ -59,4 +59,10 @@ class MyCarAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
+
+        //* login don't work with apache pack, this method fix it
+        public function supports(Request $request): bool
+        {
+            return $request->isMethod('POST') && '/login' === $request->getPathInfo();
+        }
 }

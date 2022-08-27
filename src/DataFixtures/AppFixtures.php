@@ -4,14 +4,10 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-
 use App\Entity\Car;
 use App\Entity\Brand;
-
 use Faker;
-
 use Doctrine\DBAL\Connection;
-
 use Faker\Provider\Fakecar;
 
 class AppFixtures extends Fixture
@@ -49,6 +45,8 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        $this->truncate();
+
 
         $cars = [];
         $brands = [];
