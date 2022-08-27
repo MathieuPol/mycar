@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class CarType extends AbstractType
 {
@@ -50,12 +51,13 @@ class CarType extends AbstractType
             ->add('fuel', ChoiceType::class, [
                 'label' => 'Energie',
                 'choices' => [
-                    'Diesel' => 'Diesel',
-                    'Essence' => 'Essence',
-                    'Hybrid' => 'Hybrid',
-                    'Electrique' => 'Eletric'],
+                    'Diesel' => 'diesel',
+                    'Gasoil' => 'gas',
+                    'Hybrid' => 'hybrid',
+                    'Electrique' => 'eletric'],
                     'expanded' => true,
-                    'constraints' => new NotBlank()
+                    'constraints' => new NotBlank(),
+                    'constraints' => new NotNull(),
             ])
             ->add('door', ChoiceType::class, [
                 'label' => 'Portes',
