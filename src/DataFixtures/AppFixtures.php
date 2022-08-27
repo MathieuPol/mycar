@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Car;
 use App\Entity\Brand;
+use App\Services\MySlugger;
 use Faker;
 use Doctrine\DBAL\Connection;
 use Faker\Provider\Fakecar;
@@ -14,13 +15,13 @@ class AppFixtures extends Fixture
 {
 
     private $connection;
- 
+    private $toSlug;
 
-    public function __construct(Connection $connection)
+    public function __construct(Connection $connection, MySlugger $mySlugger)
     {
-        // On récupère la connexion à la BDD (DBAL ~= PDO)
-        // pour exécuter des requêtes manuelles en SQL pur
+
         $this->connection = $connection;
+        $this->toSlug = $mySlugger;
 
     }
     
@@ -75,6 +76,7 @@ class AppFixtures extends Fixture
             $car = new Car();
 
             $car->setModele($faker->vehicleModel());
+            $car->setSlug($this->toSlug->slug($car->getModele()));
             $car->setReleasedate($faker->dateTimeBetween('-80 years'));
             $car->setFuel($faker->vehicleFuelType());
             $car->setBrand( $brands[mt_rand(0, count($brands) - 1) ] );

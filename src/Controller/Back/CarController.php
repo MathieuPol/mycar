@@ -13,13 +13,13 @@ use App\Repository\CarRepository;
 use App\Services\MySlugger;
 
 /**
- * @Route("/back/car")
+ * @Route("/back/car", name="back_car_")
  */
 class CarController extends AbstractController
 {
     /**
      * permet de génerer la home
-     * @Route("/", name="home", methods={"GET"})
+     * @Route("/", name="browse", methods={"GET"})
      * @return Response
      */
     public function list(CarRepository $carRepository):Response
@@ -65,7 +65,7 @@ class CarController extends AbstractController
             $entityManager->persist($car);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('back_car_browse');
         }
 
 
@@ -76,7 +76,7 @@ class CarController extends AbstractController
 
     /**
      * Methode de suppression ici on envoi des voiture à la casse
-     * @Route("/car/delete/{id}", name="carDelete", methods={"POST"}, requirements= {"id"="\d+"})
+     * @Route("/car/delete/{id}", name="delete", methods={"POST"}, requirements= {"id"="\d+"})
      * @return Response
      * @param int $id
      */
@@ -93,18 +93,18 @@ class CarController extends AbstractController
                'success',
                'Suppression effectuée avec succes'
            );
-           return $this->redirectToRoute('home');
+           return $this->redirectToRoute('back_car_browse');
        }
        $this->addFlash(
            'warning',
            'La suppression à échouée'
        );
-       return $this->redirectToRoute('home');
+       return $this->redirectToRoute('back_car_browse');
     }
 
         /**
     * Methode de mise à jout ici on envoi des voiture à la casse
-    * @Route("/car/update/{id}", name="carUpdate", methods={"GET", "POST"}, requirements= {"id"="\d+"})
+    * @Route("/car/update/{id}", name="edit", methods={"GET", "POST"}, requirements= {"id"="\d+"})
     * @return Response
     * @param int $id
     */
@@ -133,15 +133,12 @@ class CarController extends AbstractController
                $entityManager->persist($car);
                $entityManager->flush();
 
-               return $this->redirectToRoute('home');
+               return $this->redirectToRoute('back_car_browse');
            }
 
 
                 return $this->renderForm('back/car/update.html.twig', [
                'form' => $form,]);
        } 
-       
-
-
 
 }
