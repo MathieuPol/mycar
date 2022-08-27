@@ -30,9 +30,9 @@
                             <td>{{ car.brand.name }}</td>
 
                             <td>
-                                <form action="{{ path('carDelete', {id: car.id}) }}" method="post">
+                                <form action="{{ path('back_car_delete', {id: car.id}) }}" method="post">
                                     <input type="hidden" name="_method" value="DELETE" />
-                                    <button type="submit" onclick="window.location.href= '{{ path('carDelete', {id: car.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un véhicule</button>
+                                    <button type="submit" onclick="window.location.href= '{{ path('back_car_delete', {id: car.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un véhicule</button>
                                 </form>
                             </td>
                         </tr>

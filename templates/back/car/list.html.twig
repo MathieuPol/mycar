@@ -45,15 +45,14 @@
 
 
 						<td>
-                                    <form action="{{ path('back_car_delete', {id: car.id}) }}" method="post">
+                                    <form action="{{ path('back_car_delete', {id: car.id}) }}" method="post" onsubmit="return confirm('Etes vous sûr de vouloir supprimer ce véhicule')">
                                         <input type="hidden" name="_method" value="DELETE" />
- 										<button type="submit" onclick="window.location.href= '{{ path('back_car_delete', {id: car.id}) }}'" type="button" class="btn btn-danger me-2">Supprimer un véhicule</button>
+ 										<button class="btn btn-danger me-2">Supprimer</button>
                                     </form>
 						
 						</td>
 						<td>
 						 	<button type="submit" onclick="window.location.href= '{{ path('back_car_edit', {id: car.id}) }}'" type="button" class="btn btn-primary me-2">Modifier un véhicule</button>
-
 						</td>
 					</tr>
 				{% endfor %}

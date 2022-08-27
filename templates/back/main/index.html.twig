@@ -23,7 +23,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Vous avez {{ nbCar }} voitures</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{ asset('back_car_browse') }}">Voir plus</a>
+                                        <a class="small text-white stretched-link" href="{{ path('back_car_browse') }}">Voir plus</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Vous avez {{ nbBrand }} marques</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir plus</a>
+                                        <a class="small text-white stretched-link" href="{{ path('app_back_brand_index') }}">Voir plus</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Vous avez {{ nbUser }} utilisateurs</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir plus</a>
+                                        <a class="small text-white stretched-link" href="{{ path('app_back_user_index') }}">Voir plus</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
