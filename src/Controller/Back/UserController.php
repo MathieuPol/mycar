@@ -70,8 +70,6 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //$user->setPassword($passwordHasher->hashPassword($user, $form['password']->getData()));
             $userRepository->add($user, true);
-
-
             return $this->redirectToRoute('app_back_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
