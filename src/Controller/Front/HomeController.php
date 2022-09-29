@@ -27,10 +27,6 @@ class HomeController extends AbstractController
 
         //$carList = $carRepository->findCarAndBrand();
 
-//? J'ai essayé le innerjoin mais il m'est impossible d'acceder à la valeur de brand_id dans l'entité car
-// Par souci de temps je n'ai pas fait la validation des variables
-// sauf certaines me paraissant necessaire
-
         $carList = $carRepository->findAll();
 
         return $this->render('main/front/home.html.twig',[

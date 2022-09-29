@@ -52,8 +52,6 @@ class CarRepository extends ServiceEntityRepository
     }
 
 
-
-
 //    /**
 //     * @return Car[] Returns an array of Car objects
 //     */
