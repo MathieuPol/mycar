@@ -136,7 +136,6 @@ class CarController extends AbstractController
                return $this->redirectToRoute('back_car_browse');
            }
 
-
                 return $this->renderForm('back/car/update.html.twig', [
                'form' => $form,]);
        } 
