@@ -41,12 +41,11 @@ class CarRepository extends ServiceEntityRepository
     }
 
 
-    public function findCarAndBrand()
+    public function findCarAndBrand($brandId)
     {
-
         return $this->createQueryBuilder('c')
-                    ->innerJoin('\App\Entity\Brand', 'b', Join::WITH, 'b.id = :brand_id')
-                    ->setParameter('brand_id', 'brand_id')
+                    ->where('c.brand = :brand_id')
+                    ->setParameter('brand_id', $brandId)
                     ->getQuery()
                     ->getResult();
     }

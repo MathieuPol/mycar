@@ -24,7 +24,6 @@ class HomeController extends AbstractController
      */
     public function list(CarRepository $carRepository):Response
     {
-
         $carList = $carRepository->findAll();
 
         return $this->render('main/front/home.html.twig',[
@@ -42,6 +41,7 @@ class HomeController extends AbstractController
      */
     public function carShow(Car $car)
     {
+        
         if ($car)
         {
             return $this->render('main/front/carShow.html.twig',[
